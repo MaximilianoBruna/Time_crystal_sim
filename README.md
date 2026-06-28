@@ -86,7 +86,7 @@ Los scripts ejecutan por defecto los parámetros físicos calibrados para reprod
 
 ---
 
-## Instalación y Uso
+## Instalación 
 
 El proyecto requiere una instalación estándar de Python 3 equipada con el ecosistema de computación científica optimizado de NumPy y SciPy.
 
