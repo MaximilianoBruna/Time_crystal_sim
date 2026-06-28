@@ -8,7 +8,7 @@ El marco físico y matemático de las simulaciones implementadas replica y extie
 
 ---
 
-## 🚀 Descripción del Proyecto
+## Descripción del Proyecto
 
 Un cristal de tiempo continuo representa una fase de la materia fuera del equilibrio termodinámico que rompe espontáneamente la simetría de traslación temporal continua del hamiltoniano del sistema. Bajo la influencia de un bombeo óptico constante y continuo (es decir, una excitación completamente independiente del tiempo y sin frecuencias externas impuestas), el campo acoplado de espines induce auto-oscilaciones periódicas autosostenidas y macroscópicamente estables.
 
@@ -20,7 +20,7 @@ Este proyecto abarca el modelado completo de dicha fase cuántica/clásica no li
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 El repositorio se organiza en cuatro scripts principales e independientes en Python, optimizados para alto rendimiento mediante vectorización masiva:
 
@@ -31,7 +31,7 @@ El repositorio se organiza en cuatro scripts principales e independientes en Pyt
 
 ---
 
-## ⚙️ Fundamentos Físicos y Métodos Computacionales Avanzados
+## Fundamentos Físicos y Métodos Computacionales Avanzados
 
 ### 1. Aproximación Adiabática y Reducción Dimensional
 El sistema físico presenta una separación severa de escalas temporales: la polarización del espín electrónico responde en la escala de los nanosegundos, mientras que el campo nuclear de Overhauser evoluciona lentamente en el orden de los segundos. Esta disparidad introduce una rigidez matemática extrema (*stiffness*) que inutiliza los métodos de integración estándar si se intentan resolver ambas derivadas en simultáneo.
@@ -62,9 +62,9 @@ En su lugar, este proyecto implementa un análisis espectral en estado estaciona
 ### 5. Retratos de Fase e Incrustación de Retardo (*Delay Embedding*)
 Para mapear la topología de los atractores del cristal de tiempo, se emplea el teorema de incrustación de retardo (delay embedding), proyectando la componente $S_z(t)$ frente a su versión desplazada en el tiempo $S_z(t - \tau)$.
 
-**⚠️ Clarificación sobre la topología geométrica:** De acuerdo con el Teorema de Existencia y Unicidad de Picard-Lindelöf para sistemas dinámicos deterministas, las trayectorias en el espacio de fase real (el cual posee un mínimo de tres dimensiones físicas independientes) **nunca pueden cruzarse consigo mismas**. No obstante, en las proyecciones bidimensionales generadas en los scripts, se observarán intersecciones visibles en las curvas del retrato de fase. 
+** Clarificación sobre la topología geométrica:** De acuerdo con el Teorema de Existencia y Unicidad de Picard-Lindelöf para sistemas dinámicos deterministas, las trayectorias en el espacio de fase real (el cual posee un mínimo de tres dimensiones físicas independientes) **nunca pueden cruzarse consigo mismas**. No obstante, en las proyecciones bidimensionales generadas en los scripts, se observarán intersecciones visibles en las curvas del retrato de fase. 
 
-Es fundamental destacar que estos cruces **no constituyen un error físico del modelo ni una falla de convergencia del integrador numérico**, sino que corresponden a un *artefacto topológico de proyección* (el denominado "efecto sombra" que ocurre al colapsar una trayectoria tridimensional sobre un plano 2D, condicionado por la magnitud del retardo discreto $\tau$). La unicidad y causalidad física de la órbita del ciclo límite o del atractor extraño permanecen intactas en las dimensiones superiores del sistema.
+Es fundamental destacar que estos cruces **no constituyen un error físico del modelo ni una falla de convergencia del integrador numérico**, sino que corresponden a un *artefacto topológico de proyección* (un "efecto sombra" que ocurre al colapsar una trayectoria tridimensional sobre un plano 2D, condicionado por la magnitud del retardo discreto $\tau$). La unicidad y causalidad física de la órbita del ciclo límite o del atractor extraño permanecen intactas en las dimensiones superiores del sistema.
 
 ### 6. Dinámica Espaciotemporal Unidimensional Vectorizada
 El script `1D_solver_HeatMap.py` modela el comportamiento del cristal a lo largo de una dimensión espacial extendida añadiendo un operador difusivo Laplaciano discreto (diferencias finitas de segundo orden) a la EDO local del campo nuclear. 
@@ -73,7 +73,7 @@ Para acoplar la difusión espacial de forma eficiente con un integrador explíci
 
 ---
 
-## 📊 Parámetros Físicos y Configuración por Defecto
+## Parámetros Físicos y Configuración por Defecto
 
 Los scripts ejecutan por defecto los parámetros físicos calibrados para reproducir los regímenes fenomenológicos clave analizados en la literatura:
 * **Factor DNP Isotrópico ($a_N$):** $20.0\text{ mT}$ (Fuerza de la polarización nuclear dinámica isotrópica)
@@ -86,8 +86,12 @@ Los scripts ejecutan por defecto los parámetros físicos calibrados para reprod
 
 ---
 
-## 🛠️ Instalación y Uso
+## Instalación y Uso
 
 El proyecto requiere una instalación estándar de Python 3 equipada con el ecosistema de computación científica optimizado de NumPy y SciPy.
 
-1. **Clonar el repositorio localmente:**
+```bash
+pip install numpy scipy matplotlib
+```
+
+
